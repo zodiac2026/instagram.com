@@ -4,19 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-        return """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Test</title>
-    </head>
-    <body style="background:white;">
-        <h1 style="color:black;">FLASK TEST</h1>
-    </body>
-    </html>
-    """
-
+        return render_template("indext.html")
+        
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form.get('username')
